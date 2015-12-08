@@ -3,6 +3,7 @@ import List from "./List";
 import Form from "./Form";
 
 import LinkActions from "../actions/LinkActions";
+import AddLink from "../actions/AddLink";
 
 import LinkStore from "../stores/LinkStore";
 
@@ -16,9 +17,6 @@ class AppController extends React.Component {
     super(props);
     this.state = _getAppState();
     this._onChange = this._onChange.bind(this);
-  }
-  insertBookmark(newBookmark) {
-    // LinkActions.saveNewBookmark(newBookmark);
   }
   componentDidMount() {
     LinkActions.getAllBookmarks();
@@ -36,7 +34,10 @@ class AppController extends React.Component {
       <div className="app">
         <h2>Bookmarks!</h2>
         <List bookmarks={this.state.bookmarks} />
-        <Form addBookmark={this.insertBookmark.bind(this)} />
+        <div>
+          Total: {this.state.bookmarks.length}
+        </div>
+        <Form />
       </div>
     );
   }

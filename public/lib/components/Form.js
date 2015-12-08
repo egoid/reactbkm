@@ -1,4 +1,5 @@
 import React from "react";
+import AddLink from "./../actions/AddLink";
 
 class Form extends React.Component {
   constructor(props) {
@@ -10,12 +11,13 @@ class Form extends React.Component {
   }
   addBookmark(e) {
     e.preventDefault();
+    console.log('asdf');
     let newBookmark = { title: this.state.titleValue,
                         url: this.state.urlValue };
-
+    AddLink.AdderLink(newBookmark);
     // invoke the insertBookmark(newBookmark);
-    this.props.addBookmark(newBookmark);
-    this.setState({titleValue: '', urlValue: ''});
+    // this.props.addBookmark(newBookmark);
+    // this.setState({titleValue: '', urlValue: ''});
   }
   render() {
     let {titleValue, urlValue} = this.state;
